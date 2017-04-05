@@ -21,7 +21,7 @@ class MailController extends Controller
       ];
       Mail::send('emails.contact', $data, function($message) use ($data) {
           $message->from($data['email']);
-          $message->to("hkk710@gmail.com");
+          $message->to("hkk710@gmail.com"); //change the destination mail id //
           $message->subject("Thanks for your valuable feedback");
       });
       Session::flash('success', 'Your email was successfully send');
