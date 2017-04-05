@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('register', 'RegisterController@show');
 Route::post('register', 'RegisterController@store');
+Route::post('/send', 'MailController@send');
