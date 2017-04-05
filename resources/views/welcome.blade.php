@@ -60,7 +60,7 @@
             <h1>Attend the most awaited Web Development Workshop of 2017</h1>
             <h3>to get you up and running with your next big idea!</h3>
             <h4>20<sup>th</sup> to 22<sup>nd</sup>  April, 2017</h4>
-            <a href="#" class="btn btn-lg btn-red">Register Now <span class="ti-arrow-right"></span></a>
+            <a href="{{ url('register') }}" class="btn btn-lg btn-red">Register Now <span class="ti-arrow-right"></span></a>
 
           </div>
           <div class="col-md-5 hidden-xs" style="background-image: url({{asset('img/shadowcircle.png')}});background-repeat:no-repeat;background-size:contain;background-position:center 250px; ">
