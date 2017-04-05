@@ -35,10 +35,20 @@ body {
         <i class="mdi-hardware-keyboard-backspace prefix"></i>
     </a>
 </div>
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
 
+                <li><div class="card-panel teal lighten-2" style="background-color:  #f21263 ;color:white">{{ $error }}</div></li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
+      <form class="login-form" action="{{ url('register') }}" method="POST">
+        {{ csrf_field() }}
         <div class="row">
           <div class="input-field col s12 center" style="height:100px;background-image:url({{asset('img/meetup-logo1.png')}});background-size: cover;
 background-position: center;">
@@ -47,68 +57,67 @@ background-position: center;">
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="name" type="text" class="validate">
+            <input name="name" type="text" class="validate" value="{{old('name')}}">
             <label for="name" class="center-align">Name</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-account-box  prefix"></i>
-            <input id="rollno" type="text" class="validate">
+            <input name="rollno" type="text" class="validate" value="{{old('rollno')}}">
             <label for="rollno" class="center-align">Rollno</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-communication-email prefix"></i>
-            <input id="email" type="email" class="validate">
+            <input name="email" type="email" class="validate" value="{{old('email')}}">
             <label for="email" class="center-align">Email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-communication-phone prefix"></i>
-            <input id="phone" type="text" class="validate">
+            <input name="phone" type="text" class="validate" value="{{old('phone')}}">
             <label for="phone">Phone</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <select style="display: block;" id="batch" required>
+            <select style="display: block;" name="batch" class="validate" required>
                 <option value="">Select Batch</option>
-                <option value="BCA">BCA</option>
-                <option value="MCA">MCA</option>                
-                <option value="CSE">CSE</option>
-                <option value="EEE">EEE</option>
-                <option value="MECH">MECH</option>
-                <option value="ECE">ECE</option>
+                <option {{old('batch')=='BCA'?'selected':''}} value="BCA">BCA</option>
+                <option {{old('batch')=='MCA'?'selected':''}} value="MCA">MCA</option>                
+                <option {{old('batch')=='CSE'?'selected':''}} value="CSE">CSE</option>
+                <option {{old('batch')=='EEE'?'selected':''}} value="EEE">EEE</option>
+                <option {{old('batch')=='MECH'?'selected':''}} value="MECH">MECH</option>
+                <option {{old('batch')=='ECE'?'selected':''}} value="ECE">ECE</option>
                 <option disabled="disabled">-----------</option>
-                <option value="BBA">BBA</option>
-                <option value="BBM">BBM</option>
-                <option value="BCOM">BCOM</option>
-                <option value="INT">INT Msc</option>
-                <option value="PG">PG</option>                
+                <option {{old('batch')=='BBA'?'selected':''}} value="BBA">BBA</option>
+                <option {{old('batch')=='BCOM'?'selected':''}} value="BCOM">BCOM</option>
+                <option {{old('batch')=='INT'?'selected':''}} value="INT">INT Msc</option>
+                <option {{old('batch')=='PG'?'selected':''}} value="PG">PG</option>                
             </select>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <select style="display: block;" id="semester" required>
+            <select style="display: block;" name="semester" class="validate" selected="{{old('semester')}}"required>
                 <option value="">Select Semester</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
+                <option {{old('semester')=='1'?'selected':''}} value="1">1</option>
+                <option {{old('semester')=='2'?'selected':''}} value="2">2</option>
+                <option {{old('semester')=='3'?'selected':''}} value="3">3</option>
+                <option {{old('semester')=='4'?'selected':''}} value="4">4</option>
+                <option {{old('semester')=='5'?'selected':''}} value="5">5</option>
+                <option {{old('semester')=='6'?'selected':''}} value="6">6</option>
+                <option {{old('semester')=='7'?'selected':''}} value="7">7</option>
+                <option {{old('semester')=='8'?'selected':''}} value="8">8</option>
             </select>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="register.html" class="btn waves-effect waves-light col s12">Register Now</a>
+            <input type="submit" style="background-color: teal" value="Register Now">
           </div>
           <div class="input-field col s12">
             <p class="margin center medium-small sign-up"><a href="#">Only limited seats available</a></p>
