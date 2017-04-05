@@ -117,7 +117,7 @@ background-position: center;">
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input type="submit" style="background-color: teal" value="Register Now">
+            <input type="submit" style="background-color: teal;color:white" value="Register Now">
           </div>
           <div class="input-field col s12">
             <p class="margin center medium-small sign-up"><a href="#">Only limited seats available</a></p>
