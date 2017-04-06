@@ -22,6 +22,7 @@ html {
 body {
     display: table-cell;
     vertical-align: middle;
+    background-color: #016cc7;
 }
 .margin {
   margin: 0 !important;
@@ -30,7 +31,7 @@ body {
 
 </head>
 
-<body class="blue">
+<body>
 <div class="back-button" style="position: absolute;left: 0px">
     <a href="{{ url('/') }}" style="width: 100%; color: black; font-size: 40px">
         <i class="mdi-hardware-keyboard-backspace prefix"></i>
@@ -118,7 +119,10 @@ background-position: center;">
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input type="submit" style="background-color: teal;color:white" value="Register Now">
+            <center>
+            <input type="submit" style="background-color: teal;color:white;border: 1px solid teal;
+padding: 2px;margin:0 auto" class="btn" value="Register Now">
+            </center>
           </div>
           <div class="input-field col s12">
             <p class="margin center medium-small sign-up"><a href="#">Only limited seats available</a></p>
@@ -147,7 +151,7 @@ background-position: center;">
    <footer class="page-footer">
           <div class="footer-copyright">
             <div class="container">
-            Markandeya © 2017
+            Vasudev © 2017
             <a class="grey-text text-lighten-4 right" href="">Ruby On Rails</a>
             </div>
           </div>

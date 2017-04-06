@@ -438,7 +438,7 @@
         </div>
         <div class="row footer-credit">
           <div class="col-md-6 col-sm-6">
-            <p>&copy; 2017, <a href="#">Markandeya</a> | All rights reserved.</p>
+            <p>&copy; 2017, <a href="#">Vasudev</a> | All rights reserved.</p>
           </div>
           <div class="col-md-6 col-sm-6">
           <!--  <ul class="footer-menu">
@@ -450,7 +450,14 @@
         </div>
       </div>
       <!-- End: Footer -->
-
+        <style type="text/css">
+        @media screen and (max-width: 640px) {
+          .btn-red {
+            padding: 0px ;
+            margin-top: 0px !important;
+          }
+        }
+  </style>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="{{ asset('js/jquery.min.js')}}"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
