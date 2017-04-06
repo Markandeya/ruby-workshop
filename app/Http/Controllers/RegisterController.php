@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Registration;
 use Illuminate\Http\Request;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -22,6 +24,16 @@ class RegisterController extends Controller
             'semester' => 'required|max:10'
         ]);
 
-        dd('Success');
+        $registration = new Registration;
+        $registration->name = $request->name;
+        $registration->rollno = strtolower($request->rollno);
+        $registration->email = $request->email;
+        $registration->phone = $request->phone;
+        $registration->batch = $request->batch;
+        $registration->semester = $request->semester;
+        $registration->save();
+
+        Session::flash('success', 'Registration was successful!');
+        return redirect()->route('home');
     }
 }
