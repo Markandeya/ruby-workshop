@@ -10,6 +10,12 @@ class EmailController extends Controller
 {
     public function send(Request $request)
     {
+        $this->validate($request, function () {
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'body' => 'required'
+        });
+
         Mail::send('mail', ['body' => $request->message, 'from' => $request->email,
          'name' => $request->name], function ($m) {
             $m->to('amritaphysicaldepartment@gmail.com', 'TEST')->subject('Ruby On Rails')->

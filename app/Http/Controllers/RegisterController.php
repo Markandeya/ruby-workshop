@@ -20,8 +20,8 @@ class RegisterController extends Controller
             'rollno' => ['required','max:255','Regex:/^am\.((ar)|en)\.[a-z 0-9]*$/i'],
             'email' => 'required|email|max:255',
             'phone' => 'required|numeric|digits:10',
-            'batch' => 'required|max:10',
-            'semester' => 'required|max:10'
+            'batch' => 'required|in:BCA,MCA,CSE,EEE,MECH,ECE,BBA,BCOM,INT,PG',
+            'semester' => 'required|between:1,8'
         ]);
 
         $registration = new Registration;

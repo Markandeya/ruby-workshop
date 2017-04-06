@@ -7,7 +7,7 @@
   <meta name="description" content="Ruby On Rails Workshop at Amrita University Amritapuri">
   <meta name="author" content="Markandeya">
   <link rel="shortcut icon" href="{{{ asset('img/favicon.png') }}}">
-  <title>RoR Workshop 2017</title>
+  <title>RoR Workshop | Home</title>
 
   <!-- Bootstrap -->
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
