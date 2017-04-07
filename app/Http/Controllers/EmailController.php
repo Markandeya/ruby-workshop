@@ -10,11 +10,11 @@ class EmailController extends Controller
 {
     public function send(Request $request)
     {
-        $this->validate($request, function () {
+        $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'body' => 'required'
-        });
+            'message' => 'required'
+        ]);
 
         Mail::send('mail', ['body' => $request->message, 'from' => $request->email,
          'name' => $request->name], function ($m) {

@@ -438,7 +438,7 @@
         </div>
         <div class="row footer-credit">
           <div class="col-md-6 col-sm-6">
-            <p>&copy; 2017, <a href="#">Vasudev</a> | All rights reserved.</p>
+            <p>&copy; 2017, <a href="#">Markandeya</a> | All rights reserved.</p>
           </div>
           <div class="col-md-6 col-sm-6">
           <!--  <ul class="footer-menu">

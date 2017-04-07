@@ -151,7 +151,7 @@ padding: 2px;margin:0 auto" class="btn" value="Register Now">
    <footer class="page-footer">
           <div class="footer-copyright">
             <div class="container">
-            Vasudev © 2017
+            Markandeya © 2017
             <a class="grey-text text-lighten-4 right" href="">Ruby On Rails</a>
             </div>
           </div>
