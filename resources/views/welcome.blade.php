@@ -383,12 +383,11 @@
         <div class="row contact">
           <div class="col-md-6 contact-form">
             <h3 class="content-ct"><span class="ti-email"></span> Contact Form</h3>
-            <form class="form-horizontal" data-toggle="validator" role="form" method="POST" action="/send" data-parsley-validate>
-                {{ csrf_field() }}
+            <form class="form-horizontal" data-toggle="validator" role="form">
               <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="name" placeholder="your name" required  name="name" required="required" maxlength="255">
+                  <input type="text" class="form-control" id="name" placeholder="John Doe" required>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -396,7 +395,7 @@
               <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <input type="email" class="form-control" id="email" placeholder="you@youremail.com" name="email" required="required" maxlength="255" required>
+                  <input type="email" class="form-control" id="email" placeholder="you@youremail.com" required>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -404,29 +403,17 @@
               <div class="form-group">
                 <label for="message" class="col-sm-3 control-label">Your Message<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <textarea id="message" class="form-control" rows="3" required name="comment" minlength="5" required="required"></textarea>
+                  <textarea id="message" class="form-control" rows="3" required></textarea>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                  <button type="submit" id="submit" name="submit" class="btn btn-yellow pull-right" value="SEND MESSAGE">Send <span class="ti-arrow-right"></span></button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-yellow pull-right">Send <span class="ti-arrow-right"></span></button>
                 </div>
               </div>
             </form>
-
-            @if (count($errors) > 0)
-          <div class="w3-container w3-red" style="margin-top: 10px">
-            <h3>Sorry!</h3>
-            <p>
-              @foreach ($errors->all() as $error)
-                {{ $error }}
-              @endforeach
-            </p>
-          </div>
-        @endif
-
           </div>
           <div class="col-md-4 col-md-offset-1 content-ct">
             <h3><span class="ti-twitter"></span> Twitter Feed</h3>
