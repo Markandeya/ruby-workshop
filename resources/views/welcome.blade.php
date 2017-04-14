@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ruby On Rails Workshop at Amrita University Amritapuri">
   <meta name="author" content="Markandeya">
-  <title>RoR Workshop 2017</title>
+  <link rel="shortcut icon" href="{{{ asset('img/favicon.png') }}}">
+  <title>RoR Workshop | Home</title>
 
   <!-- Bootstrap -->
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -52,7 +53,13 @@
           </li>
         </ul>
       </nav>
+        @if(Session::has('success'))
+          <div class="card-panel teal lighten-2" style="background-color:  #f21263 ;color:white;width:100%;margin:0px;top:0px;font-size:25px;text-align: center">
+          {{ Session::get('success') }}
+          </div>
+        @endif
       <div class="container-fluid">
+
         <!-- Start: Header -->
         <div class="row hero-header" id="home">
           <div class="col-md-7">
@@ -383,11 +390,12 @@
         <div class="row contact">
           <div class="col-md-6 contact-form">
             <h3 class="content-ct"><span class="ti-email"></span> Contact Form</h3>
-            <form class="form-horizontal" data-toggle="validator" role="form">
+            <form class="form-horizontal" data-toggle="validator" role="form" method="POST" action="{{ url('sendmail') }}">
+              {{ csrf_field() }}
               <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                  <input type="text" class="form-control"  style="padding: 0px;" id="name" placeholder="John Doe" name="name" required>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -395,7 +403,7 @@
               <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <input type="email" class="form-control" id="email" placeholder="you@youremail.com" required>
+                  <input type="email" class="form-control" style="padding: 0px;"  id="email" placeholder="you@youremail.com" name="email" required>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -403,7 +411,7 @@
               <div class="form-group">
                 <label for="message" class="col-sm-3 control-label">Your Message<sup>*</sup></label>
                 <div class="col-sm-9">
-                  <textarea id="message" class="form-control" rows="3" required></textarea>
+                  <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
                   <div class="help-block with-errors pull-right"></div>
                   <span class="form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -416,13 +424,17 @@
             </form>
           </div>
           <div class="col-md-4 col-md-offset-1 content-ct">
-            <h3><span class="ti-twitter"></span> Twitter Feed</h3>
-            <p>Lorem <a href="#">#Ipsum</a> is a dummy text used as a text filler in designs. This is just a dummy text. via <a href="#">@designerdada</a> </p>
+            <h3><span class="ti-help-alt"></span> Any Queries?</h3>
             <hr>
-            <p>Lorem Ipsum is a <a href="#">#dummy</a> text used as a text filler in designs. This is just a dummy text. via <a href="#">@designerdada</a> </p>
+            <p>
+              Give us a mail using the contact form!
+            </p>
             <hr>
-            <p>Lorem Ipsum is a <a href="#">#dummy</a> text used as a text filler in designs. This is just a dummy text. via <a href="#">@designerdada</a> </p>
           </div>
+            {{-- <p>Lorem Ipsum is a <a href="#">#dummy</a> text used as a text filler in designs. This is just a dummy text. via <a href="#">@designerdada</a> </p>
+            <hr>
+            <p>Lorem Ipsum is a <a href="#">#dummy</a> text used as a text filler in designs. This is just a dummy text. via <a href="#">@designerdada</a> </p>
+          </div> --}} 
         </div>
         <div class="row footer-credit">
           <div class="col-md-6 col-sm-6">
@@ -438,7 +450,14 @@
         </div>
       </div>
       <!-- End: Footer -->
-
+        <style type="text/css">
+        @media screen and (max-width: 640px) {
+          .btn-red {
+            padding: 0px ;
+            margin-top: 0px !important;
+          }
+        }
+  </style>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="{{ asset('js/jquery.min.js')}}"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -447,7 +466,7 @@
       <script src="{{ asset('js/scrolling-nav.js') }}"></script>
       <script src="{{ asset('js/validator.js') }}"></script>
       <!-- Google Analytics -->
-      <script>
+      <!--<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -455,6 +474,6 @@
 
       ga('create', 'UA-29231762-2', 'auto');
       ga('send', 'pageview');
-      </script>
+      </script>-->
     </body>
     </html>

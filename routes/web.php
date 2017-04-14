@@ -13,7 +13,8 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('register', 'RegisterController@create')->name('register');
 Route::post('register', 'RegisterController@store')->name('register');
+Route::post('/sendmail', 'EmailController@send')->name('sendmail');
